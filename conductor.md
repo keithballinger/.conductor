@@ -89,8 +89,9 @@ This document outlines the "what"—the complete user experience of the final pr
 
 > **AI AGENT INSTRUCTION: This is a collaborative task.**
 > - **DO NOT** write this file based on assumptions.
-> - Your task is to **INITIATE A DIALOGUE** with the user.
-> - Ask targeted questions to understand the intended users, their goals, and key features.
+> - Your task is to **INITIATE A DIALOGUE** with the user to define the user experience.
+> - First, provide a brief overview of the topics you will ask about.
+> - Then, ask your clarifying questions **ONE AT A TIME**. Wait for the user's response before asking the next question.
 > - Once you have gathered sufficient information, you will then draft the `user_guide.md` for user approval.
 
 ### 8. `architecture.md`: The AI-Designed Technical Specification
@@ -99,8 +100,9 @@ This file contains the "how"—the detailed technical specification for the proj
 
 > **AI AGENT INSTRUCTION: This is a collaborative task.**
 > - **DO NOT** write this file based on assumptions.
-> - After the `user_guide.md` is complete, your task is to **PROPOSE A TECHNICAL ARCHITECTURE** by asking the user clarifying questions.
-> - Confirm choices about languages, frameworks, and infrastructure.
+> - After the `user_guide.md` is complete, your task is to **PROPOSE A TECHNICAL ARCHITECTURE**.
+> - First, provide a brief overview of the architectural decisions you need to confirm (e.g., language, framework, database).
+> - Then, ask clarifying questions **ONE AT A TIME**. Wait for the user's response before asking the next question.
 > - Once the user has approved the technical direction, you will then generate the `architecture.md` file.
 
 ---
