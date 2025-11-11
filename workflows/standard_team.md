@@ -1,4 +1,4 @@
-# Project Workflow - Blogger McBlog
+# Project Workflow
 
 ## Guiding Principles
 
@@ -7,8 +7,7 @@
 3. **The Architecture is Deliberate:** Changes to the system design must be documented in `architecture.md` *before* implementation
 4. **Test-Driven Development:** Write unit tests before implementing functionality
 5. **High Code Coverage:** Aim for >80% code coverage for all modules
-6. **Mobile-First:** Every feature must work beautifully on iPhone
-7. **User Experience First:** Every decision should prioritize user experience
+6. **User Experience First:** Every decision should prioritize user experience
 
 ## Task Workflow
 
@@ -28,30 +27,24 @@ All tasks follow a strict lifecycle:
 
 4. **Implement:** Perform the work required following TDD principles
 
-5. **Test on Mobile:** When working on a project that requires UI for mobile, for any UI changes:
-   - Test in iPhone simulator or device
-   - Verify touch interactions work
-   - Ensure text is readable
-   - Check performance on mobile connection
-
-6. **Verify Coverage:** Run coverage reports:
+5. **Verify Coverage:** Run coverage reports using the project's chosen tools. For example, in a Python project, this might look like:
    ```bash
    pytest --cov=app --cov-report=html
    ```
-   Target: >80% coverage for new code
+   Target: >80% coverage for new code. The specific tools and commands will vary by language and framework.
 
-7. **Document Deviations:** If implementation differs from architecture:
+6. **Document Deviations:** If implementation differs from architecture:
    - **STOP** implementation
    - Update `architecture.md` with new design
    - Add dated note explaining the change
    - Resume implementation
 
-8. **Commit Code Changes:**
+7. **Commit Code Changes:**
    - Stage all code changes related to the task.
    - Propose a clear, concise commit message following the prose style guide.
    - Perform the commit.
 
-9. **Create dev_log.md entry:**
+8. **Create dev_log.md entry:**
    - Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
    - Create a detailed entry in the development log for the completed task, referencing the commit hash.
    - Append the entry to `dev_log.md`.
@@ -66,70 +59,46 @@ Before marking any task complete, verify:
 
 - [ ] All tests pass
 - [ ] Code coverage meets requirements (>80%)
-- [ ] Code follows style guidelines (PEP 8)
-- [ ] All public functions have docstrings
-- [ ] Type hints are present and correct
-- [ ] No linting errors (ruff, black)
-- [ ] Works correctly on mobile
+- [ ] Code follows project's code style guidelines (as defined in `code_styleguides/`)
+- [ ] All public functions/methods are documented (e.g., docstrings, JSDoc, GoDoc)
+- [ ] Type safety is enforced (e.g., type hints, TypeScript types, Go types)
+- [ ] No linting or static analysis errors (using the project's configured tools)
+- [ ] Works correctly on mobile (if applicable)
 - [ ] Documentation updated if needed
 - [ ] No security vulnerabilities introduced
 
 ## Development Commands
 
+**AI AGENT INSTRUCTION: This section should be adapted to the project's specific language, framework, and build tools.**
+
 ### Setup
 ```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Setup database
-flask db upgrade
-
-# Create .env from example
-cp .env.example .env
+# Example: Commands to set up the development environment (e.g., install dependencies, configure database)
+# e.g., for a Node.js project: npm install
+# e.g., for a Go project: go mod tidy
 ```
 
 ### Daily Development
 ```bash
-# Start development server
-make run
-
-# Run tests
-make test
-
-# Run linting
-make lint
-
-# Format code
-make format
-
-# Check coverage
-make coverage
+# Example: Commands for common daily tasks (e.g., start dev server, run tests, lint, format)
+# e.g., for a Node.js project: npm run dev, npm test, npm run lint
+# e.g., for a Go project: go run main.go, go test ./..., go fmt ./...
 ```
 
 ### Before Committing
 ```bash
-# Run all checks
-make check
-
-# This runs:
-# - black (formatting)
-# - ruff (linting)
-# - mypy (type checking)
-# - pytest (tests)
-# - coverage report
+# Example: Commands to run all pre-commit checks (e.g., format, lint, type check, run tests)
+# e.g., for a Node.js project: npm run check
+# e.g., for a Go project: make check (if a Makefile exists)
 ```
 
 ## Testing Requirements
 
 ### Unit Testing
-- Every module must have corresponding tests
-- Use pytest fixtures for setup
-- Mock external dependencies
-- Test both success and failure cases
+- Every module must have corresponding tests.
+- Use appropriate test setup/teardown mechanisms (e.g., fixtures, beforeEach/afterEach).
+- Mock external dependencies.
+- Test both success and failure cases.
 
 ### Integration Testing
 - Test complete user flows
@@ -232,13 +201,14 @@ A task is complete when:
 
 1. All code implemented to specification
 2. Unit tests written and passing
-3. Code coverage >80%
-4. Documentation complete
-5. Code passes all linting
-6. Works beautifully on mobile
-7. Implementation notes added to plan.md
-8. Status.md updated
+3. Code coverage meets project requirements
+4. Documentation complete (if applicable)
+5. Code passes all configured linting and static analysis checks
+6. Works beautifully on mobile (if applicable)
+7. Implementation notes added to `plan.md`
+8. `status.md` updated
 9. Changes committed with proper message
+10. `dev_log.md` entry created and committed
 
 ## Emergency Procedures
 
