@@ -87,19 +87,31 @@ This file is the starting point for any contributor, especially an AI. It sets t
 
 This document outlines the "what"—the complete user experience of the final product.
 
--   **Process:** The AI will initiate a dialogue, asking you a series of targeted questions about the intended users, their goals, and key features. Based on your answers, it will write a detailed user guide from the end-user's perspective.
--   **Purpose:** To define the product's functionality and user flow before any code is written.
+> **AI AGENT INSTRUCTION: This is a collaborative task.**
+> - **DO NOT** write this file based on assumptions.
+> - Your task is to **INITIATE A DIALOGUE** with the user.
+> - Ask targeted questions to understand the intended users, their goals, and key features.
+> - Once you have gathered sufficient information, you will then draft the `user_guide.md` for user approval.
 
 ### 8. `architecture.md`: The AI-Designed Technical Specification
 
 This file contains the "how"—the detailed technical specification for the project.
 
--   **Process:** After defining the user experience in `user_guide.md`, the AI will propose a technical architecture. It will ask you questions to confirm choices about languages, frameworks, and infrastructure, and then generate a detailed technical spec.
--   **Purpose:** To provide a clear technical roadmap for implementation, ensuring all components work together.
+> **AI AGENT INSTRUCTION: This is a collaborative task.**
+> - **DO NOT** write this file based on assumptions.
+> - After the `user_guide.md` is complete, your task is to **PROPOSE A TECHNICAL ARCHITECTURE** by asking the user clarifying questions.
+> - Confirm choices about languages, frameworks, and infrastructure.
+> - Once the user has approved the technical direction, you will then generate the `architecture.md` file.
 
 ---
 
-## How to Use the Conductor Methodology on Any Project
+## How to Use the Conductor Methodology
+
+The process is divided into two phases: a one-time automated setup and the ongoing collaborative workflow.
+
+### Phase 1: Initial Project Setup (Automated)
+
+An AI agent should perform these steps once at the beginning of a project.
 
 1.  **Create the `.conductor` Directory:** In your project's root, create a new folder named `.conductor`.
 
@@ -119,11 +131,18 @@ This file contains the "how"—the detailed technical specification for the proj
     -   **Workflows (into `.conductor/workflows/`):**
         -   `toc.md`, `standard_team.md`
 
-4.  **Start with the Plan and Prompt:**
-    -   In `plan.md`, sketch out the high-level goals and phases of your project.
-    -   In `prompt.md`, write a mission statement. What is this project trying to achieve?
+### Phase 2: Project Execution (Collaborative)
 
-5.  **Follow the Process:**
+This is the ongoing, human-led workflow.
+
+1.  **Define the Vision (Human Task):**
+    -   In `plan.md`, sketch out the high-level goals and phases of your project.
+    -   In `prompt.md`, write a mission statement.
+
+2.  **Collaborate on Guides (AI + Human Task):**
+    -   Following the instructions in this document, work with the AI to collaboratively generate the `user_guide.md` and `architecture.md`.
+
+3.  **Follow the Daily Workflow:**
     -   Before starting work, update your `status.md`.
     -   Consult your `plan.md` to choose a task.
     -   Follow your `workflow.md` to complete the task.
