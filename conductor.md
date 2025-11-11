@@ -14,13 +14,12 @@ At the heart of this methodology is a directory named `.conductor/`. This folder
 
 Here are the six essential files that make up the Conductor system:
 
-### 1. `plan.md`: The Master Blueprint
+### 1. `plan.md`: The AI-Generated Project Blueprint
 
-This is the single source of truth for what the project aims to achieve. It's a living document that outlines the entire scope of work, broken down into phases and actionable tasks.
+This is the project's master plan, authored by your AI assistant.
 
--   **Purpose:** To define the project's goals and provide a clear, hierarchical task list.
--   **Structure:** Use checklists (`[ ]`, `[~]`, `[x]`) to track the status of major phases and individual tasks. This makes it easy to see progress at a glance.
--   **Key Feature:** It's the "what" and the "why" of your project. Every major piece of work should be represented here before you begin.
+-   **Process:** You provide the high-level project goal (e.g., "a photo-sharing app for dog owners"). The AI will then ask clarifying questions and generate a comprehensive plan, breaking the project into phases and actionable tasks.
+-   **Purpose:** To serve as the single source of truth for what needs to be done, created for you by the AI.
 
 > **For a New Project:** Start by outlining the major phases or features. You don't need every detail at first, but you need a clear roadmap.
 
@@ -84,13 +83,19 @@ This file is the starting point for any contributor, especially an AI. It sets t
     -   A "What I need help with today" section to frame the immediate task.
 -   **Key Feature:** It's the ultimate "read me first" document that bootstraps the entire workflow.
 
-### 7. `user_guide.md`: The What
+### 7. `user_guide.md`: The AI-Drafted User Experience
 
-A document outlining the user experience of what we are building. This should be highly detailed. As me questions to help you create this. You MUST ask at least 10 questions. Ask them one by one.
+This document outlines the "what"—the complete user experience of the final product.
 
-### 8. `architecture.md`: The How
+-   **Process:** The AI will initiate a dialogue, asking you a series of targeted questions about the intended users, their goals, and key features. Based on your answers, it will write a detailed user guide from the end-user's perspective.
+-   **Purpose:** To define the product's functionality and user flow before any code is written.
 
-This is a detailed technical spec. Ask me at least 5 questions to help you write this. Ask them one by one.
+### 8. `architecture.md`: The AI-Designed Technical Specification
+
+This file contains the "how"—the detailed technical specification for the project.
+
+-   **Process:** After defining the user experience in `user_guide.md`, the AI will propose a technical architecture. It will ask you questions to confirm choices about languages, frameworks, and infrastructure, and then generate a detailed technical spec.
+-   **Purpose:** To provide a clear technical roadmap for implementation, ensuring all components work together.
 
 ---
 
@@ -98,15 +103,25 @@ This is a detailed technical spec. Ask me at least 5 questions to help you write
 
 1.  **Create the `.conductor` Directory:** In your project's root, create a new folder named `.conductor`.
 
-2.  **Create the Six Core Files:** Create empty markdown files for `plan.md`, `prose_styleguide.md`, `code_styleguide.md`, `workflow.md`, `status.md`, and `prompt.md`.
+2.  **Create Core Files:** Create the essential files like `plan.md`, `status.md`, and `prompt.md`.
 
-3.  **Start with the Plan and Prompt:**
+3.  **Download the Starter Libraries:** To populate the style and workflow guides, an AI agent should download the starter templates from the official GitHub repository.
+
+    -   **Base URL:** `https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/`
+    -   **Action:** For each category below, create the directory and download the corresponding files into it.
+
+    -   **Code Style Guides (into `.conductor/code_styleguides/`):**
+        -   `toc.md`, `general.md`, `javascript.md`, `python.md`, `go.md`, `typescript.md`, `html-css.md`
+
+    -   **Prose Style Guides (into `.conductor/prose_styleguides/`):**
+        -   `toc.md`, `professional.md`, `friendly_companion.md`, `direct_minimalist.md`, `enthusiastic_motivator.md`
+
+    -   **Workflows (into `.conductor/workflows/`):**
+        -   `toc.md`, `standard_team.md`
+
+4.  **Start with the Plan and Prompt:**
     -   In `plan.md`, sketch out the high-level goals and phases of your project.
     -   In `prompt.md`, write a mission statement. What is this project trying to achieve?
-
-4.  **Define Your Style and Workflow:**
-    -   Flesh out the `prose_styleguide.md` and `code_styleguide.md`. Even a few simple rules are better than none.
-    -   Define a simple `workflow.md`. It can be as easy as "Plan -> Do -> Review."
 
 5.  **Follow the Process:**
     -   Before starting work, update your `status.md`.
