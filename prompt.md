@@ -6,6 +6,7 @@
     -   The selected workflow in the `workflows/` directory.
     -   The project plan in `plan.md`.
     -   The latest project status in `status.md`.
+    -   The development log in `dev_log.md`.
 
 2.  **Identify and Propose Next Task:**
     -   After reading the files, scan `plan.md` to identify the current task.

@@ -46,11 +46,19 @@ All tasks follow a strict lifecycle:
    - Add dated note explaining the change
    - Resume implementation
 
-8. **Mark Done & Add Notes:** Upon completion:
-   - Edit `plan.md` and change task from `[~]` to `[x]`
-   - Add sub-bullet with implementation notes
-   - Document test coverage achieved
-   - Note any important decisions
+8. **Commit Code Changes:**
+   - Stage all code changes related to the task.
+   - Propose a clear, concise commit message following the prose style guide.
+   - Perform the commit.
+
+9. **Create dev_log.md entry:**
+   - Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
+   - Create a detailed entry in the development log for the completed task, referencing the commit hash.
+   - Append the entry to `dev_log.md`.
+   - Stage `dev_log.md`.
+   - Propose a commit message for the `dev_log.md` update (e.g., "chore(dev_log): Add entry for [Task Name]").
+   - Perform the commit.
+
 
 ### Quality Gates
 
