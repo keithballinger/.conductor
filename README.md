@@ -24,7 +24,7 @@ To be used **once** in a new, empty project directory. This prompt instructs the
 **Launch the Gemini CLI with the following command:**
 
 ```bash
-gemini -i "I want to set up this project using the Conductor methodology. Your instructions are in the protocol file located at https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/conductor.md. Please begin the setup process." --yolo
+gemini -i "I want to set up this project using the Conductor methodology. Your instructions are in the file located at https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/conductor.md. Download that file with curl, then read it. Then begin the setup process as outlined in that file." --yolo --model "gemini-2.5-pro"
 ```
 
 ### Daily Development Workflow
