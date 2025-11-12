@@ -1,0 +1,3 @@
+prompt = """
+Start my development session by following the instructions in .conductor/prompt.md.
+"""

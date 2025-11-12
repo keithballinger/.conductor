@@ -17,11 +17,35 @@ The Conductor methodology is divided into two main phases:
 
 To use the Conductor methodology, you will use one of the two prompts below, depending on your project's state.
 
+### Extension
+
+Optionally, you can install Conductor as a Gemini extension with those custom commands:
+- /conductor:init
+- /conductor:resume
+
+```bash
+gemini extensions link [path to conductor_repo/extensions/conductor]
+```
+
 ### Initial Project Setup
 
-To be used **once** in a new, empty project directory. This prompt instructs the AI to fetch the master protocol and begin the guided setup wizard.
+To be used **once** in the root of directory/repo. This prompt instructs the AI to fetch the master protocol and begin the guided setup wizard.
+
+**Using the Extension**
+
+Launch Gemini
+```bash
+gemini
+```
+
+In the gemini chat window type:
+```bash
+/conductor:init
+```
 
 **Launch the Gemini CLI with the following command:**
+
+Alternatively, you can manually prompt gemini:
 
 ```bash
 gemini -i "I want to set up this project using the Conductor methodology. Your instructions are in the file located at https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/conductor.md. Download that file with curl, then read it. Then begin the setup process as outlined in that file." --yolo --model "gemini-2.5-pro"
@@ -30,6 +54,18 @@ gemini -i "I want to set up this project using the Conductor methodology. Your i
 ### Daily Development Workflow
 
 After the initial setup is complete, use this prompt **every time** you start a new work session. It directs the AI to read the local `prompt.md` file, understand the project's context, and prepare for the day's tasks.
+
+**Using the Extension**
+
+Launch Gemini
+```bash
+gemini
+```
+
+In the gemini chat window type:
+```bash
+/conductor:resume
+```
 
 **Launch the Gemini CLI with the following command:**
 

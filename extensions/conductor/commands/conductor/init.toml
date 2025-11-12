@@ -1,0 +1,3 @@
+prompt = """
+I want to set up this project using the Conductor methodology. Your instructions are in the file located at https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/conductor.md. Download that file with curl, then read it. Then begin the setup process as outlined in that file.
+"""
