@@ -32,27 +32,27 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
 2.  **Select Code Style Guides:**
     -   Read and parse `.conductor/code_styleguides/toc.md`.
-    -   Present the list of available guides to the user.
+    -   Present the list of available guides to the user as a **numbered list**.
     -   Ask the user which guide(s) they would like to include (multiple selections are allowed).
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
-    -   Present the list of available guides to the user.
+    -   Present the list of available guides to the user as a **numbered list**.
     -   Ask the user to select **exactly one** guide.
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
-    -   Present the list of available workflows to the user.
+    -   Present the list of available workflows to the user as a **numbered list**.
     -   Ask the user to select **exactly one** workflow.
 
 ### 2.3 Finalization and Approval Gate
 1.  **Summarize Actions:** After the user has made their selections, present a summary of all the actions you are about to take. The summary must include:
     -   A list of all the guide files that will be downloaded.
-    -   A list of all the empty core files that will be created (`plan.md`, `status.md`, `user_guide.md`, `architecture.md`, `dev_log.md`).
+    -   A list of all the empty core files that will be created: `.conductor/plan.md`, `.conductor/status.md`, `.conductor/user_guide.md`, `.conductor/architecture.md`, and `.conductor/dev_log.md`.
 2.  **Request Final Approval:** Ask the user for a single confirmation to proceed with these final setup actions. **DO NOT** proceed without user approval.
 
 ### 2.4 Execute Finalization
 1.  **On Approval:** Once the user approves, execute all the summarized actions:
     -   Download all the selected guide files.
-    -   Create all the empty core files.
+    -   Create all the empty core files, ensuring they are placed inside the `.conductor/` directory.
 2.  **Transition to Phase 2:** Announce that Phase 1 is complete and you will now proceed to Phase 2 to begin the collaborative project definition, starting with the `user_guide.md`.
 
 ---
@@ -65,20 +65,23 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 2.  **Provide an Overview:** List the topics you plan to ask about (e.g., users, goals, features).
 3.  **Ask Questions Sequentially:** Ask your first question. **STOP** and wait for the user's response. Then, ask the next question. Continue this until you have enough information.
 4.  **Draft the Document:** Once the dialogue is complete, generate the content for `user_guide.md`.
-5.  **Request Approval:** Present the draft to the user and ask for their approval before proceeding.
+5.  **Request Approval:** Present the draft to the user for approval.
+6.  **Write File:** Once the user approves the content, write it to the `.conductor/user_guide.md` file.
 
 ### 3.2 Generate Technical Architecture (Interactive)
 1.  **State Your Goal:** After `user_guide.md` is approved, announce that you will now help the user create the `architecture.md`.
 2.  **Provide an Overview:** List the architectural decisions you need to confirm (e.g., language, framework, database).
 3.  **Ask Questions Sequentially:** Ask your first question. **STOP** and wait for the user's response. Then, ask the next question. Continue this until the technical direction is clear.
 4.  **Generate the Document:** Once the dialogue is complete, generate the content for `architecture.md`.
-5.  **Request Approval:** Present the document to the user and ask for their approval.
+5.  **Request Approval:** Present the document to the user for approval.
+6.  **Write File:** Once the user approves the content, write it to the `.conductor/architecture.md` file.
 
 ### 3.3 Generate Project Plan (Automated + Approval)
 1.  **State Your Goal:** After `architecture.md` is approved, announce that you will now generate the project plan.
 2.  **Analyze Documents:** Read the final, user-approved `user_guide.md` and `architecture.md`.
 3.  **Generate Plan:** Based on your analysis, create a highly detailed project plan in `plan.md`. The plan must include a hierarchical structure of phases, tasks, and sub-tasks using markdown checklists (`[ ]`).
 4.  **Request Approval:** Present the generated plan to the user for review and approval.
+5.  **Write File:** Once the user approves the content, write it to the `.conductor/plan.md` file.
 5.  Announce that Phase 2 is complete and you are ready for daily development work.
 6.  **Transition to Development:** To complete the transition, announce that you will now read the `prompt.md` file to begin the first development session. Then, execute the instructions within `prompt.md`.
 
