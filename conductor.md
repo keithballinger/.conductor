@@ -17,31 +17,32 @@ You are an AI agent. Your primary function is to set up and manage a software pr
     -   Report to the user that a new Git repository has been initialized.
     -   If a `.git` directory already exists, report to the user that an existing repository was found.
 
-### 2.1 Automated Scaffolding
+### 2.1 Execute Initial Scaffolding Commands
 1.  **Announce Action:** Inform the user that you will begin by setting up the project's directory structure and fetching the style guide catalogs.
-2.  **Execute Scaffolding:**
-    -   Create a directory named `.conductor` in the project root.
-    -   Inside `.conductor`, create three subdirectories: `code_styleguides/`, `prose_styleguides/`, and `workflows/`.
-    -   Download **ONLY the following three files** into their respective directories from the base URL: `https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/`
-        -   `code_styleguides/toc.md`
-        -   `prose_styleguides/toc.md`
-        -   `workflows/toc.md`
-    -   Execute the shell command: `curl -o .conductor/prompt.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/prompt.md` to download the `prompt.md` file.
+2.  **Execute Commands:** Execute the following shell commands precisely and in order:
+    -   `mkdir -p .conductor/code_styleguides .conductor/prose_styleguides .conductor/workflows`
+    -   `curl -o .conductor/code_styleguides/toc.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/toc.md`
+    -   `curl -o .conductor/prose_styleguides/toc.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/prose_styleguides/toc.md`
+    -   `curl -o .conductor/workflows/toc.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/workflows/toc.md`
+    -   `curl -o .conductor/prompt.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/prompt.md`
 
 ### 2.2 Guided Selection (Interactive Dialogue)
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
 2.  **Select Code Style Guides:**
     -   Read and parse `.conductor/code_styleguides/toc.md`.
     -   Present the list of available guides to the user as a **numbered list**.
-    -   Ask the user which guide(s) they would like to include (multiple selections are allowed).
+    -   Ask the user which guide(s) they would like to include.
+    -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
     -   Present the list of available guides to the user as a **numbered list**.
     -   Ask the user to select **exactly one** guide.
+    -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
     -   Present the list of available workflows to the user as a **numbered list**.
     -   Ask the user to select **exactly one** workflow.
+    -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
 
 ### 2.3 Finalization and Approval Gate
 1.  **Summarize Actions:** After the user has made their selections, present a summary of all the actions you are about to take. The summary must include:
