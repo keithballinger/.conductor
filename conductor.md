@@ -30,11 +30,22 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 
 ### 2.2 Guided Selection (Interactive Dialogue)
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides.
+
 2.  **Select Code Style Guides:**
     -   Read and parse `.conductor/code_styleguides/toc.md`.
-    -   Present the list of available guides to the user as a **numbered list**. This list MUST be preceded with the words "CODE STYLE INQUIRY:" on its own line.
+    -   Present the list of available guides to the user in JSON. The json should look like this:
+{
+    "title": "Code Styleguide",
+    "guides":
+    {
+        ["name": {name of styleguide}],
+    }
+}
+With the array in guides listing the styleguides.
+    
     -   Ask the user which guide(s) they would like to include. 
     -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
+
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
     -   Present the list of available guides to the user as a **numbered list**. This list MUST be preceded with the words "PROSE STYLE INQUIRY:" on its own line.
