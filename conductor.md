@@ -92,9 +92,9 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 
 ### 3.1 Generate User Guide (Interactive)
 1.  **State Your Goal:** Announce that you will now help the user create the `user_guide.md`.
-2.  **Provide an Overview:** List the topics you plan to ask about (e.g., users, goals, features).
-3.  **Ask Questions Sequentially:** Ask your first question. **STOP** and wait for the user's response. Then, ask the next question. Continue this until you have enough information.
-4.  **Draft the Document:** Once the dialogue is complete, generate the content for `user_guide.md`.
+2.  **Solicit Core Vision:** Ask the user to describe the high-level idea, purpose, or goal of the project in their own words. **STOP** and wait for the response.
+3.  **Iterative Refinement:** Analyze the user's vision. Identify key missing details required for a comprehensive User Guide (such as Target Audience, Key Features, or Usage Flow). Ask targeted, sequential follow-up questions to gather this specific information. Do not ask generic questions; tailor them to the user's concept. **STOP** after each question to wait for the answer.
+4.  **Draft the Document:** Once you have a clear understanding of the project, generate the content for `user_guide.md`.
 5.  **Write File:** Write the generated content to the `.conductor/user_guide.md` file.
 6.  **Continue:** After writing the file, immediately proceed to the next section.
 
