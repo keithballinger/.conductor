@@ -36,12 +36,11 @@ You are an AI agent. Your primary function is to set up and manage a software pr
     -   Present the list of available guides to the user in JSON. The json should look like this:
 {
     "title": "Code Styleguide",
-    "guides":
-    {
-        ["name": {name of styleguide}],
-    }
+    "multi_select": true,
+    "guides": [
+        { "name": "{name of styleguide}" }
+    ]
 }
-With the array in guides listing the styleguides.
     
     -   Ask the user which guide(s) they would like to include. 
     -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
@@ -51,6 +50,7 @@ With the array in guides listing the styleguides.
     -   Present the list of available guides to the user in JSON. The json should look like this:
 {
     "title": "Prose Styleguide",
+    "multi_select": false,
     "guides": [
         { "name": "{name of styleguide}" }
     ]
@@ -62,6 +62,7 @@ With the array in guides listing the styleguides.
     -   Present the list of available workflows to the user in JSON. The json should look like this:
 {
     "title": "Workflow",
+    "multi_select": false,
     "guides": [
         { "name": "{name of workflow}" }
     ]
