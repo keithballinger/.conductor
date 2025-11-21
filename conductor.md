@@ -48,12 +48,24 @@ With the array in guides listing the styleguides.
 
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
-    -   Present the list of available guides to the user as a **numbered list**. This list MUST be preceded with the words "PROSE STYLE INQUIRY:" on its own line.
+    -   Present the list of available guides to the user in JSON. The json should look like this:
+{
+    "title": "Prose Styleguide",
+    "guides": [
+        { "name": "{name of styleguide}" }
+    ]
+}
     -   Ask the user to select **exactly one** guide.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
-    -   Present the list of available workflows to the user as a **numbered list**. This list MUST be preceded with the words "WORKFLOW INQUIRY:" on its own line.
+    -   Present the list of available workflows to the user in JSON. The json should look like this:
+{
+    "title": "Workflow",
+    "guides": [
+        { "name": "{name of workflow}" }
+    ]
+}
     -   Ask the user to select **exactly one** workflow.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
 
