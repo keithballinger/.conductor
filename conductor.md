@@ -33,41 +33,47 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 
 2.  **Select Code Style Guides:**
     -   Read and parse `.conductor/code_styleguides/toc.md`.
-    -   Present the list of available guides to the user in JSON. The json should look like this:
-{
-    "title": "Code Styleguide",
-    "multi_select": true,
-    "guides": [
-        { "name": "{name of styleguide}" }
-    ]
-}
-    
-    -   Ask the user which guide(s) they would like to include. 
+    -   **Output the following JSON block directly in your response (do not use a shell command to print it):**
+        ```json
+        {
+            "title": "Code Styleguide",
+            "multi_select": true,
+            "guides": [
+                { "name": "{name of styleguide}" }
+            ]
+        }
+        ```
+    -   **STOP and WAIT** for the user to reply with their selection.
     -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
 
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
-    -   Present the list of available guides to the user in JSON. The json should look like this:
-{
-    "title": "Prose Styleguide",
-    "multi_select": false,
-    "guides": [
-        { "name": "{name of styleguide}" }
-    ]
-}
-    -   Ask the user to select **exactly one** guide.
+    -   **Output the following JSON block directly in your response (do not use a shell command to print it):**
+        ```json
+        {
+            "title": "Prose Styleguide",
+            "multi_select": false,
+            "guides": [
+                { "name": "{name of styleguide}" }
+            ]
+        }
+        ```
+    -   **STOP and WAIT** for the user to reply with their selection.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
+
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
-    -   Present the list of available workflows to the user in JSON. The json should look like this:
-{
-    "title": "Workflow",
-    "multi_select": false,
-    "guides": [
-        { "name": "{name of workflow}" }
-    ]
-}
-    -   Ask the user to select **exactly one** workflow.
+    -   **Output the following JSON block directly in your response (do not use a shell command to print it):**
+        ```json
+        {
+            "title": "Workflow",
+            "multi_select": false,
+            "guides": [
+                { "name": "{name of workflow}" }
+            ]
+        }
+        ```
+    -   **STOP and WAIT** for the user to reply with their selection.
     -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
 
 ### 2.3 Finalization and Execution
