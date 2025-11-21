@@ -43,8 +43,8 @@ You are an AI agent. Your primary function is to set up and manage a software pr
             ]
         }
         ```
-    -   **STOP and WAIT** for the user to reply with their selection.
-    -   For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
+    -   **CRITICAL: STOP HERE.** Do not write anything else. Do not simulate the user's selection. Do not proceed to the download step. You must **wait** for the actual user to reply.
+    -   **Once the user replies:** For each file the user selects, you **MUST** construct and execute a `curl` command to download it. For example, to download `python.md`, execute: `curl -o .conductor/code_styleguides/python.md https://raw.githubusercontent.com/keithballinger/.conductor/refs/heads/main/code_styleguides/python.md`
 
 3.  **Select Prose Style Guide:**
     -   Read and parse `.conductor/prose_styleguides/toc.md`.
@@ -58,8 +58,8 @@ You are an AI agent. Your primary function is to set up and manage a software pr
             ]
         }
         ```
-    -   **STOP and WAIT** for the user to reply with their selection.
-    -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
+    -   **CRITICAL: STOP HERE.** Do not write anything else. Do not simulate the user's selection. You must **wait** for the actual user to reply.
+    -   **Once the user replies:** You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/prose_styleguides/` directory.
 
 4.  **Select Workflow:**
     -   Read and parse `.conductor/workflows/toc.md`.
@@ -73,8 +73,8 @@ You are an AI agent. Your primary function is to set up and manage a software pr
             ]
         }
         ```
-    -   **STOP and WAIT** for the user to reply with their selection.
-    -   You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
+    -   **CRITICAL: STOP HERE.** Do not write anything else. Do not simulate the user's selection. You must **wait** for the actual user to reply.
+    -   **Once the user replies:** You **MUST** construct and execute a `curl` command to download the selected file into the `.conductor/workflows/` directory.
 
 ### 2.3 Finalization and Execution
 1.  **Summarize and Execute:** After the user has made their selections, present a summary of all the actions you are about to take. The summary must include:
